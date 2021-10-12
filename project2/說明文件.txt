@@ -1,0 +1,28 @@
+一.使用開發環境:
+
+作業系統:Windows 10 家用版
+處理器:Intel(R) Core(TM) i7-7700HQ CPU @ 2.80 GHz
+系統類型:64 位元
+使用軟體: AnacondaNavigator→spyder
+語言:python 3.7
+
+二.功能及流程:
+
+Step1 : 依照arrive time 做排序
+Step2 : 使用一個無窮迴圈，當arrive time <= cpu time時，將他放入waitting queue。
+Step3 : 取出 waitting queue的第一個，當作放入cpu run 的 process，此時cpuBurst要-1，cpuTime+1。
+Step4 : 依照各種method的條件，如果此process run完，就計算turnaround time和waitting time，並檢查是否有東西可以放入waitting queue。
+Step5 : 如果所有process都run完了，就使用break跳出此無窮迴圈，並輸出甘特圖及turnaround time和waitting time。
+
+三.使用的sata structer:
+
+Class:
+使用一個名為Process的 class，存入每個process的ID、CPUBurst、arrival time、Priority、turnaround time和waitting time。
+
+List:
+一個一維、動態的list，用來存Process的 object
+用list來當成waitting queue，可以直接將Process的 object存入，每當有東西要放入CPU run 時，就使用 list.pop()取出，而要放入時，就使用list.append()。
+
+四.未做到的功能
+
+PP在做優先順序排序時有排錯，導致執行結果跟解答不同。
